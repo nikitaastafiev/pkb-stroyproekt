@@ -1,0 +1,346 @@
+@font-face {
+  font-family: 'Onest';
+  src: url('../fonts/Onest-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono Base';
+  src: url('../fonts/JetBrainsMono-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Unbounded';
+  src: url('../fonts/Unbounded-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono Accent';
+  src: url('../fonts/JetBrainsMono-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* --- ПАЛИТРА И ТЕМЫ --- */
+
+  --base-transition-duration: 0.3s;
+  --color-blueprint-blue: #0a1626;
+   /* Попробовать если что вот этот оттенок #0047AB*/
+  --color-blueprint-white: #ffffff;
+  --color-blueprint-cyan: #00f2fe;
+  --color-main-background: var(--color-blueprint-blue);
+  --color-main-text: var(--color-blueprint-white);
+  --color-accent: var(--color-blueprint-cyan);
+  --color-main-dark-for-shadow: #000;
+  --color-secondary-dark-for-shadow: #0000000D;
+  --background-container: #FFFFFF08;
+  --border-color-container: #FFFFFF14;
+  --border-for-elements: 1px solid var(--border-color-container);
+  --border-for-buttons: 1px solid var(--color-accent);
+  --color-text-muted: #8e9cae;
+
+  /* --- ТИПОГРАФИКА --- */
+
+  --font-family-base: 'Onest', system-ui, sans-serif;;
+  --font-family-accent: 'JetBrains Mono Accent', system-ui, sans-serif;;
+  --font-size-small: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-h3: clamp(1.125rem, 2vw, 1.25rem);
+  --font-size-h2: clamp(1.375rem, 2.5vw, 1.75rem);
+  --font-size-h1: clamp(1.75rem, 4vw, 2.5rem);
+  --line-height-tight: 1.2;
+  --line-height-medium: 1.35;
+  --line-height-large: 1.6;
+
+  /* --- РАЗМЕРЫ ЭЛЕМЕНТОВ --- */
+
+  --section-padding-y: clamp(1.875rem, 5vw, 3.125rem);
+  --grid-padding: clamp(0.75rem, 1.5vw, 1.25rem);
+  --grid-width: 1280px;
+  --padding-block-base: 0.75rem;
+  --border-radius-base: 4px;
+
+  /* --- ПОЛОЖЕНИЕ ЭЛЕМЕНТОВ --- */
+
+  --layoutHeader: 80;
+  --layerOverlay: 100;
+  --layerOverlayControls: 150;
+
+  /* --- ТЕНИ --- */
+
+  --box-shadow-3: -4px -4px 4px hsla(0, 0%, 100%, .05), 1px 1px 4px var(--color-main-dark-for-shadow);
+  --box-shadow-4: -8px -8px 12px hsla(0,0%, 100%,.8), 8px 8px 12px var(--color-secondary-dark-for-shadow);
+}
+
+/* --- СТИЛИ ДЛЯ ВСЕЙ СТРАНИЦЫ --- */
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  background-color: var(--color-main-background);
+  color: var(--color-main-text);
+  padding-top: 6.188rem;
+  min-width: 22.5rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color var(--base-transition-duration) ease;
+  background-image:
+    linear-gradient(var(--border-color-container) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-color-container) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+@media (max-width: 48rem) {
+  body {padding-top: 4rem;}
+}
+
+/* --- ТЕМНАЯ ТЕМА --- */
+
+.dark-mode {
+  --color-main-background: #050505;
+  --color-accent: #39ff88;
+  --background-container: #FFFFFF05;
+  --border-color-container: #FFFFFF0D;
+  --color-text-muted: #666666;
+}
+
+/* --- ОБЩИЕ СТИЛИ КОНТЕНТА --- */
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: calc(var(--grid-width) + var(--grid-padding) * 2);
+  padding-inline: var(--grid-padding);
+  width: 100%;
+}
+
+.flow-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  min-height: inherit;
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  overflow-y: visible;
+  z-index: 1;
+}
+
+.i-icon {
+  fill: var(--color-main-background);
+  --size: 1.3em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--size);
+  width: var(--size);
+}
+
+.visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  border: 0 !important;
+  height: 1px !important;
+  overflow: hidden;
+  padding: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+  width: 1px !important;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ СЕКЦИЙ --- */
+
+.section {
+  padding-block: var(--section-padding-y);
+}
+
+.section__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.section__header {
+  max-width: 50rem; /* Ограничиваем длину строки для хорошей читаемости текста */
+  margin-bottom: 3.125rem;
+
+  @media (max-width: 48em) {
+    margin-bottom: 2rem;
+  }
+}
+
+.section__title {
+  margin-bottom: 1.25rem;
+  font-family: var(--font-family-accent);
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-medium);
+  letter-spacing: -0.01em;
+}
+
+.section__description {
+  color: var(--color-text-muted);
+  line-height: var(--line-height-large);
+}
+
+.section__grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ КАРТОЧЕК --- */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-container);
+  border: var(--border-for-elements);
+  border-radius: var(--border-radius-base);
+  backdrop-filter: blur(4px);
+}
+
+.card__title {
+  font-family: var(--font-family-accent);
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-medium);
+}
+
+.card__text {
+
+}
+
+/* --- КОМПОНЕНТ: КНОПКА --- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-main-text);
+  background-color: var(--background-container);
+  border-radius: var(--border-radius-base);
+  border: var(--border-for-elements);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  white-space: nowrap;
+  transition: background-color var(--base-transition-duration) ease,
+              border-color var(--base-transition-duration) ease,
+              color var(--base-transition-duration) ease,
+              box-shadow var(--base-transition-duration) ease;
+
+  @media (max-width: 43.060em) {
+    width: 100%; /* На мобилках все b2b-кнопки автоматически тянутся на всю ширину экрана */
+  }
+
+  @media (hover: hover) {
+    &:not(.project-filters__button--active):hover {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+      box-shadow: 0 0 15px var(--color-main-dark-for-shadow);
+    }
+  }
+
+}
+
+/* Крупная кнопка (Hero и Верификация) */
+.button--big {
+  padding: 0.625rem 1.25rem;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: transparent;
+      box-shadow: 0 0 15px var(--color-main-dark-for-shadow);
+    }
+  }
+}
+
+/* Компактная кнопка в рамке (Фильтры, реестр файлов, модалка) */
+.button--small {
+  padding: 0.125rem 0.625rem;
+}
+
+/* --- КОМПОНЕНТ: КНОПКА (SVG) --- */
+
+.svg-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 36px;
+  width: 36px;
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  background-color: initial;
+  border: 1px solid var(--color-main-text);
+  border-radius: var(--border-radius-base);
+  box-shadow: none;
+  text-align: left;
+  transition: border-color var(--base-transition-duration) ease,
+  box-shadow var(--base-transition-duration) ease;
+
+  @media (hover: hover) {
+    &:hover {
+      border: 1px solid var(--color-accent);
+      box-shadow: 0 0 10px var(--color-main-dark-for-shadow);
+
+      & .svg-button__line {
+        stroke: var(--color-accent);
+      }
+    }
+  }
+}
+
+.svg-button__svg {
+  width: 70%;
+  height: 70%;
+}
+
+.svg-button__line {
+  fill: none;
+  stroke: var(--color-main-text);
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dasharray .6s cubic-bezier(.4, 0, .2, 1),
+              stroke-dashoffset .6s cubic-bezier(.4, 0, .2, 1),
+              stroke var(--base-transition-duration);
+}
+
+.svg-button__line--1 { stroke-dasharray: 60 207; }
+.svg-button__line--2 { stroke-dasharray: 60 60; }
+.svg-button__line--3 { stroke-dasharray: 60 207; }
+
+.is-open {
+  & .svg-button__line--1,
+  & .svg-button__line--3 {
+    stroke-dasharray: 90 207;
+  }
+  & .svg-button__line--1 { stroke-dashoffset: -134; }
+  & .svg-button__line--2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+  }
+  & .svg-button__line--3 { stroke-dashoffset: -134; }
+
+}

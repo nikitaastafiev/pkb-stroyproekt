@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ООО ПКБ «Стройпроект»</title>
+    <meta name="description" content="">
+    <link rel="preload" href="src/fonts/Onest-Light.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="src/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <script src="src/main.js" type="module" defer></script>
+  </head>
+  <body>
+    <div class="flow-container" id="header">
+      <header class="header">
+        <div class="header__inner container">
+          <a class="header__logo logo" href="#header" aria-label="В начало страницы" title="В начало страницы">
+            <svg
+              class="i-icon logo__icon"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" stroke-dasharray="3 3"></circle>
+              <path d="M19 19H5V5"></path>
+              <path d="M5 5l14 14"></path>
+              <circle cx="12" cy="12" r="1" fill="currentColor"></circle>
+            </svg>
+          </a>
+          <nav class="header-menu hidden-mobile" aria-label="Разделы страницы">
+            <ul class="header-menu__list">
+              <li class="header-menu__item">
+                <a class="header-menu__link" href="#hero">О нас</a>
+              </li>
+              <li class="header-menu__item">
+                <a class="header-menu__link" href="#competences">Разделы</a>
+              </li>
+              <li class="header-menu__item">
+                <a class="header-menu__link" href="#cases">Кейсы</a>
+              </li>
+              <li class="header-menu__item">
+                <a class="header-menu__link" href="#documents">Документы</a>
+              </li>
+              <li class="header-menu__item">
+                <a class="header-menu__link" href="#contacts">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+          <button class="svg-button theme-switcher" type="button" data-js-theme-switcher aria-label="Переключить цветовую тему">
+            <!-- SVG лампа -->
+            <svg class="theme-switcher__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Верхняя колба -->
+              <path class="theme-switcher__bulb" d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"></path>
+              <!-- Цоколь -->
+              <line x1="9" y1="18" x2="15" y2="18"></line>
+              <line x1="10" y1="22" x2="14" y2="22"></line>
+            </svg>
+          </button>
+          <button class="header__burger-button visible-mobile svg-button" data-js-svg-button type="button" aria-label="Открыть меню" aria-expanded="false" id="burger-button">
+            <svg class="svg-button__svg" aria-hidden="true" width="30" height="30" viewBox="0 0 100 100">
+              <path class="svg-button__line svg-button__line--1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"></path>
+              <path class="svg-button__line svg-button__line--2" d="M 20,50 H 80"></path>
+              <path class="svg-button__line svg-button__line--3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"></path>
+            </svg>
+          </button>
+        </div>
+        <nav class="visible-mobile mobile-menu" id="mobile-menu" aria-label="Мобильное меню" aria-hidden="true">
+          <div class="mobile-menu__inner container">
+            <div class="mobile-menu__navigation">
+              <ul class="mobile-menu__navigation-list">
+                <li class="mobile-menu__navigation-item">
+                  <a class="mobile-menu__navigation-link" data-js-mobile-menu-navigation-link="" href="#hero">О нас</a>
+                </li>
+                <li class="mobile-menu__navigation-item">
+                  <a class="mobile-menu__navigation-link" data-js-mobile-menu-navigation-link="" href="#competences">Разделы</a>
+                </li>
+                <li class="mobile-menu__navigation-item">
+                  <a class="mobile-menu__navigation-link" data-js-mobile-menu-navigation-link="" href="#cases">Кейсы</a>
+                </li>
+                <li class="mobile-menu__navigation-item">
+                  <a class="mobile-menu__navigation-link" data-js-mobile-menu-navigation-link="" href="#documents">Документы</a>
+                </li>
+                <li class="mobile-menu__navigation-item">
+                  <a class="mobile-menu__navigation-link" data-js-mobile-menu-navigation-link="" href="#contacts">Контакты</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <!-- СЕКЦИЯ: hero -->
+        <section class="hero-section section" id="hero">
+          <div class="hero-section__inner container">
+            <div class="card hero-card">
+              <span class="hero-section__badge">ООО ПКБ «Стройпроект»</span>
+              <h1 class="hero-section__title">
+                Разработка проектной и сметной документации
+              </h1>
+              <p class="hero-section__paragraph">
+                Проектирование и сметное сопровождение объектов капитального строительства и капремонта по 44-ФЗ и 223-ФЗ в Краснодарском крае. Полный цикл работ до успешного прохождения государственной экспертизы.
+              </p>
+              <!-- Ключевые показатели компании -->
+              <div class="section__grid hero__metrics">
+                <div class="hero-section__metric-item">
+                  <span class="hero-section__metric-number">19 лет</span>
+                  <span class="hero-section__metric-text">опыта в проектировании</span>
+                </div>
+                <div class="hero-section__metric-item">
+                  <span class="hero-section__metric-number">100%</span>
+                  <span class="hero-section__metric-text">успешных экспертиз</span>
+                </div>
+                <div class="hero-section__metric-item">
+                  <span class="hero-section__metric-number">0</span>
+                  <span class="hero-section__metric-text">штрафов в РНП</span>
+                </div>
+              </div>
+              <!-- Блок целевых действий -->
+              <div class="hero-section__actions">
+                <a class="button button--big" href="#contacts">
+                  Связаться с ГИПом
+                </a>
+                <div class="hero-section__credentials">
+                  <span class="hero-section__credential-item">Член НОПРИЗ</span>
+                  <span class="hero-section__credential-divider" aria-hidden="true">•</span>
+                  <span class="hero-section__credential-item">Допуск СРО</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- СЕКЦИЯ: РАЗДЕЛЫ -->
+        <section class="section" id="competences">
+          <div class="section__inner container">
+            <!-- Шапка секции -->
+            <div class="section__header">
+              <h2 class="section__title">
+                Комплексное проектирование по Постановлению № 87
+              </h2>
+              <p class="section__description">
+                Разрабатываем полный комплект разделов проектной документации для объектов капитального строительства и реконструкции. Наш штат специалистов выполняет ключевые инженерные и конструктивные решения, за исключением систем наружного и внутреннего газоснабжения (раздел 5.6).
+              </p>
+            </div>
+            <!-- Сетка карточек с разделами документации -->
+            <div class="section__grid competences-content" data-js-competences-container>
+              <!-- Вставляем карточки с данными из JSON -->
+            </div>
+          </div>
+        </section>
+        <!-- СЕКЦИЯ: КЕЙСЫ -->
+        <section class="section" id="cases">
+          <div class="section__inner container">
+            <!-- Шапка секции -->
+            <div class="section__header">
+              <h2 class="section__title">Опыт работы с государственными учреждениями</h2>
+              <p class="section__description">
+                Реестр ключевых объектов Краснодарского края, спроектированных нашей организацией. Все представленные проекты успешно прошли государственную или негосударственную экспертизу.
+              </p>
+            </div>
+            <!-- Кнопки фильтрации -->
+            <div class="cases-section__filters project-filters">
+              <button class="button button--small project-filters__button--active" type="button" data-filter="all" data-js-filter-button="">
+                Все объекты
+              </button>
+              <button class="button button--small" type="button" data-filter="repair" data-js-filter-button="">
+                Капитальный ремонт
+              </button>
+              <button class="button button--small" type="button" data-filter="new" data-js-filter-button="">
+                Новое строительство
+              </button>
+            </div>
+            <!-- Целевой контейнер для динамического рендеринга карточек через JavaScript -->
+            <div class="section__grid cases-content" id="projects-container" data-js-projects-container="">
+              <!-- Вставляем карточки с данными из JSON -->
+            </div>
+          </div>
+        </section>
+        <!-- СЕКЦИЯ: ДОКУМЕНТЫ -->
+        <section class="documents-section section" id="documents">
+          <div class="section__inner container">
+            <!-- Шапка секции -->
+            <div class="section__header">
+              <h2 class="section__title">Юридическая чистота и допуски</h2>
+              <p class="section__description">
+                ООО ПКБ «Стройпроект» ведет полностью прозрачную деятельность. Мы обладаем всеми необходимыми лицензиями и допусками для выполнения проектно-изыскательских работ любой сложности на территории РФ.
+              </p>
+            </div>
+            <!-- Контентная область: разделена на два b2b-блока -->
+            <div class="section__grid documents-content">
+              <!-- Карточка 1: Инструмент быстрой онлайн-проверки по госреестру -->
+              <div class="card verification-card">
+                <h3 class="card__title">Независимая онлайн-проверка</h3>
+                <p class="verification-card__text">
+                  Компания является действующим членом Ассоциации «Краснодарские проектировщики». Вы можете мгновенно проверить актуальный статус нашей выписки СРО и отсутствие штрафов в Едином реестре сведений НОПРИЗ по ИНН <strong class="verification-card__inn">2353023687</strong>.
+                </p>
+                <!-- Прямая ссылка-кнопка на официальный реестр -->
+                <a
+                  class="button button--big"
+                  href="https://reestr.nopriz.ru/member/19461432"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Проверить в реестре НОПРИЗ </a>
+              </div>
+              <!-- Карточка 2: Сетка документов для скачивания/просмотра -->
+              <div class="documents-section__registry documents-registry">
+                <!-- Документ 1 -->
+                <article class="card document-item">
+                  <div class="document-item__icon-wrapper">
+                    <!-- Иконка PDF-файла -->
+                    <svg class="i-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                  </div>
+                  <div class="document-item__info">
+                    <h4 class="document-item__title">Выписка из реестра членов СРО</h4>
+                    <p class="document-item__meta">PDF • 1.2 МБ • Действующая</p>
+                  </div>
+                  <!-- Кнопка, вызывает модальное окно -->
+                  <button
+                    class="button button--small"
+                    type="button"
+                    data-js-open-document
+                    data-document-title="Выписка из реестра СРО"
+                    data-document-pages="/src/images/sro-preview-1.webp,/src/images/sro-preview-2.webp"
+                    data-document-pdf="/src/images/sro-preview.pdf"
+                  >
+                    Просмотреть
+                  </button>
+                </article>
+                <!-- Документ 2 -->
+                <article class="card document-item">
+                  <div class="document-item__icon-wrapper">
+                    <svg class="i-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                  </div>
+                  <div class="document-item__info">
+                    <h4 class="document-item__title">Благодарственное письмо ГКУ КК</h4>
+                    <p class="document-item__meta">WebP • 1 страница</p>
+                  </div>
+                  <!-- Кнопка, вызывает модальное окно -->
+                  <button
+                    class="button button--small"
+                    type="button"
+                    data-js-open-document=""
+                    data-document-title="Благодарственное письмо"
+                    data-document-pages="/src/images/sro-preview-1.webp"
+                  >
+                    Просмотреть
+                  </button>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- МОДАЛЬНОЕ ОКНО -->
+        <dialog class="document-modal" data-js-document-modal>
+          <div class="document-modal__inner">
+            <div class="document-modal__header">
+              <!-- Заголовок -->
+              <h3 class="card__title document-modal__title" data-js-modal-title>Документ</h3>
+              <!-- Кнопка закрытия -->
+              <button class="svg-button is-open" type="button" data-js-modal-close aria-label="Закрыть окно">
+                <svg class="svg-button__svg" aria-hidden="true" width="30" height="30" viewBox="0 0 100 100">
+                  <path class="svg-button__line svg-button__line--1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"></path>
+                  <path class="svg-button__line svg-button__line--2" d="M 20,50 H 80"></path>
+                  <path class="svg-button__line svg-button__line--3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="document-modal__body">
+              <!-- Лента слайдера -->
+              <div class="document-modal__slider" data-js-modal-slider></div>
+            </div>
+            <!-- Подвал -->
+            <div class="document-modal__footer" data-js-modal-footer>
+              <!-- Ссылка скачивания -->
+              <a class="button button--small" data-js-modal-download-link href="#" download="">
+                Скачать оригинал в PDF
+                <svg class="i-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </dialog>
+        <!-- СЕКЦИЯ: КОНТАКТЫ -->
+        <section class="contacts-section section" id="contacts">
+          <div class="section__inner container">
+            <!-- Шапка секции -->
+            <div class="section__header">
+              <h2 class="section__title">Свяжитесь с нами</h2>
+              <p class="section__description">
+                Вы можете обсудить условия субподряда, направить техническое задание на расчет стоимости или связаться напрямую с главным инженером проекта для оперативной консультации.
+              </p>
+            </div>
+            <!-- Контентная область контактов -->
+            <div class="section__grid contacts-content">
+              <!-- Карточка каналов связи -->
+              <div class="contacts-section__info contacts-info">
+                <div class="contacts-info__item contact-item-row">
+                  <span class="contact-item-row__label">Главный инженер проекта (ГИП):</span>
+                  <a class="contact-item-row__link" href="tel:88613042019">
+                    8 (86130) 4-20-19
+                  </a>
+                </div>
+                <div class="contacts-info__item contact-item-row">
+                  <span class="contact-item-row__label">Электронная почта для ТЗ:</span>
+                  <a class="contact-item-row__link" href="mailto:pkbstroyproekt@mail.ru">
+                    pkbstroyproekt@mail.ru
+                  </a>
+                </div>
+                <div class="contacts-info__item contact-item-row">
+                  <span class="contact-item-row__label">Фактический адрес офиса:</span>
+                  <address class="contact-item-row__address">
+                    г. Тимашевск, Пионерская улица, 191А
+                  </address>
+                </div>
+              </div>
+              <!-- Карточка интерактивной карты -->
+              <div class="contacts-section__map-wrapper glass-container">
+                <iframe
+                  class=contacts-section__map"
+                  src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae8898b02a795b5ee272c6c13da8610da41c9b1f52c47013d72e42b627cc9464a&amp;source=constructor"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                  aria-label="Интерактивная карта с расположением офиса ООО ПКБ Стройпроект"></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="main-footer">
+        <div class="main-footer__inner container">
+          <!-- Левая колонка: Копирайт и юридическое название -->
+          <div class="main-footer__legal">
+            <span class="main-footer__copyright">© 2007–2026 ООО ПКБ «Стройпроект»</span>
+            <span class="main-footer__work-time">Режим работы: Пн–Пт с 08:00 до 17:00</span>
+          </div>
+          <!-- Правая колонка: Реквизиты -->
+          <div class="main-footer__credentials footer-credentials">
+            <ul class="footer-credentials__list">
+              <li class="footer-credentials__item">ИНН: 2353023687</li>
+              <li class="footer-credentials__item">КПП: 235301001</li>
+              <li class="footer-credentials__item">ОГРН: 1072353000543</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
